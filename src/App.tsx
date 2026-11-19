@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import type { FormEvent } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { supabase } from './supabase'
+import PalaceList from './MyPalaces'   // was: import MyPalaces from './MyPalaces'
 
 function AuthForm() {
   const [email, setEmail] = useState('')
@@ -40,8 +41,7 @@ function AuthForm() {
 function MyPalaces({ email }: { email: string }) {
   return (
     <main style={{ maxWidth: 340, margin: '48px auto' }}>
-      <h1>My palaces</h1>
-      <p>No palaces yet. Signed in as {email}.</p>
+      <PalaceList />
       <button onClick={() => supabase.auth.signOut()}>Log out</button>
     </main>
   )
